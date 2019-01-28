@@ -34,8 +34,7 @@
         <strong>Registrasi Gagal!</strong> <?php echo " Alasan: ".$_SESSION["Email"]; ?>
       </div>
       <?php
-      
-      session_unset();
+      session_destroy();
     }
   }
   ?>
@@ -93,7 +92,6 @@
         
         <div class="text-center">
           <a class="d-block small mt-3" href="login.php">Login Page</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
         </div>
       </div>
     </div>

@@ -18,9 +18,8 @@ if(isset($_POST['regis'])){
 	$sql="SELECT `Email` FROM `user` WHERE `Email`= '".$_POST['email']."'";
 	$result = $conn->query($sql);
 
-	//ada data yang sama
 	if ($result->num_rows > 0) {
-    // output data of each row
+		//ada akun yang sama
 		$_SESSION["register"] = "gagal";
 		$_SESSION["Email"]="Email sudah terdaftar di sistem, silahkan ke halaman login";
 		header("Location:../register.php");

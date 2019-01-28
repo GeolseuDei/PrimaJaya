@@ -36,8 +36,20 @@
         <strong>Registrasi Berhasil!</strong>
       </div>
       <?php
-      session_unset();
+      session_destroy();
     }
+  }
+
+  if(isset($_SESSION["login"])){
+    if(!isset($_SESSION["note"])){
+      $_SESSION["note"]="Anda sudah login atau terjadi kesalahan pada sistem";
+    }
+    ?>
+      <div class="alert alert-danger">
+        <strong>Login Gagal!</strong><?php echo " Alasan: ".$_SESSION["note"]; ?>
+      </div>
+      <?php
+      session_destroy();
   }
 
   ?>
@@ -45,24 +57,23 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form action="index.php" method="post">
+        <form action="class/processLogin.php" method="post">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+              <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">
               <label for="inputPassword">Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.php">Login</a>
+          <input type="submit" id="submit" name="login" class="btn btn-primary btn-block" href="processLogin.php">
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
         </div>
       </div>
     </div>
