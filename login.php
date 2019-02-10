@@ -70,7 +70,7 @@
               <label for="inputPassword">Password</label>
             </div>
           </div>
-          <input type="submit" id="submit" name="login" class="btn btn-primary btn-block" href="processLogin.php">
+          <input type="submit" id="submit" name="login" class="btn btn-primary btn-block">
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
